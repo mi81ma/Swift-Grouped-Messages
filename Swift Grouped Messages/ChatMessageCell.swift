@@ -16,18 +16,22 @@ class ChatMessageCell: UITableViewCell {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
 
         addSubview(messageLabel)
-        messageLabel.backgroundColor = .green
+
+//        messageLabel.backgroundColor = .green
         messageLabel.text = "We want to provide a longer string that is actially going to wrap onto the next line and maybe even a third line."
+
+
         messageLabel.numberOfLines = 0
 
         messageLabel.translatesAutoresizingMaskIntoConstraints = false
 
+        // lets set up some constraints for our label instead of .frame
+        let constraints = [messageLabel.topAnchor.constraint(equalTo: topAnchor, constant: 16),
+                           messageLabel.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 16),
+                           messageLabel.bottomAnchor.constraint(equalTo: bottomAnchor, constant: -16),
+                           messageLabel.widthAnchor.constraint(equalToConstant: 250)]
 
-        // lets set up some constraints for our label
-        let constraints = [messageLabel.topAnchor.constraint(equalTo: topAnchor),
-        messageLabel.leadingAnchor.constraint(equalTo: leadingAnchor),
-        messageLabel.bottomAnchor.constraint(equalTo: bottomAnchor),
-        messageLabel.widthAnchor.constraint(equalToConstant: 250)]
+        
 
         NSLayoutConstraint.activate(constraints)
         
