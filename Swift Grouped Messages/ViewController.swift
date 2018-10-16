@@ -37,10 +37,11 @@ class ViewController: UITableViewController {
 
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
-        let cell = tableView.dequeueReusableCell(withIdentifier: cellId, for: indexPath)
+        let cell = tableView.dequeueReusableCell(withIdentifier: cellId, for: indexPath) as!
+            ChatMessageCell
 //        cell.textLabel?.text = "We want to provide a longer string that is actially going to wrap onto the next line and maybe even a third line."
 //        cell.textLabel?.numberOfLines = 0
-        
+        cell.messageLabel.text = textMessages[indexPath.row]
 
         return cell
     }
